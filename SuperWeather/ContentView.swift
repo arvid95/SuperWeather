@@ -8,12 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var calendar = Calendar.current
+    let midnight = calendar.startOfDay(for: Date())
+    
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            CurrentWeatherView(weatherImage: "sun.max",
+                               weatherCode: "Sunny",
+                               temperature: "6",
+                               todaysDate: Date().formatted(date: .abbreviated, time: .omitted),
+                               currentTime: Date().formatted(date: .omitted, time: .shortened))
+            .padding()
+            
+            Spacer()
+            
+            ForecastView(tomorrowsDate: Date().formatted(date: .abbreviated, time: .omitted), weatherImage: "sun.max", minTemperature: "-15", maxTemperature: "-4")
+                .padding()
         }
         .padding()
     }
