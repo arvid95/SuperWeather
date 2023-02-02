@@ -8,8 +8,8 @@
 import Foundation
 
 struct WeatherResponse: Decodable {
-    let currentWeather: CurrentWeather
-    let daily: Daily
+    var currentWeather: CurrentWeather
+    var daily: Daily
 }
 
 struct CurrentWeather: Decodable {
