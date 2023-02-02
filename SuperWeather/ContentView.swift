@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State var calendar = Calendar.current
-    let midnight = calendar.startOfDay(for: Date())
+    //let midnight = calendar.startOfDay(for: Date())
     
     
     var body: some View {
