@@ -3,14 +3,14 @@
 //  SuperWeather
 //
 //  Created by Arvid Axelsson on 2023-02-02.
-//
+//  Inspired by Emely Kara
 
 import Foundation
 
-struct LocationResultList: Decodable {
-    var results: [LocationInfo]
+struct CityResultList: Decodable {
+    var results: [CityInfo]
     
-    struct LocationInfo: Decodable, Hashable {
+    struct CityInfo: Decodable, Hashable {
         let name: String
         let countryCode: String
         let latitude: Float
@@ -19,7 +19,7 @@ struct LocationResultList: Decodable {
     }
 }
 
-struct FavoriteLocation {
+struct FavoriteCity {
     let cityName: String
     let latitude: Float
     let longitude: Float

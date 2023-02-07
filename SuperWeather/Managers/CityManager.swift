@@ -3,7 +3,7 @@
 //  SuperWeather
 //
 //  Created by Arvid Axelsson on 2023-02-02.
-//
+//  Inspired by Emely Kara
 
 import Foundation
 import CoreLocation
