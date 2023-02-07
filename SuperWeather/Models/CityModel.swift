@@ -20,8 +20,8 @@ struct CityResultList: Decodable {
 }
 
 struct FavoriteCity {
-    let cityName: String
-    let latitude: Float
-    let longitude: Float
-    let temperature: Float
+    var cityName: String
+    var latitude: Float
+    var longitude: Float
+    var temperature: Float
 }
