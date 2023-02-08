@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		873620A5298C139700088C52 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873620A4298C139700088C52 /* WeatherModel.swift */; };
 		873620A8298C25B900088C52 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873620A7298C25B900088C52 /* WeatherManager.swift */; };
-		873620AA298C366F00088C52 /* CityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873620A9298C366F00088C52 /* CityManager.swift */; };
+		873620AA298C366F00088C52 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873620A9298C366F00088C52 /* LocationManager.swift */; };
 		873620AC298C369100088C52 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873620AB298C369100088C52 /* CityModel.swift */; };
 		8744585B2941EB1700C8119F /* SuperWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744585A2941EB1700C8119F /* SuperWeatherApp.swift */; };
 		8744585D2941EB1700C8119F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8744585C2941EB1700C8119F /* ContentView.swift */; };
@@ -43,9 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		871146DF2993DFD100C1B691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		873620A4298C139700088C52 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		873620A7298C25B900088C52 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
-		873620A9298C366F00088C52 /* CityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityManager.swift; sourceTree = "<group>"; };
+		873620A9298C366F00088C52 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		873620AB298C369100088C52 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		874458572941EB1700C8119F /* SuperWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8744585A2941EB1700C8119F /* SuperWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperWeatherApp.swift; sourceTree = "<group>"; };
@@ -102,7 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				873620A7298C25B900088C52 /* WeatherManager.swift */,
-				873620A9298C366F00088C52 /* CityManager.swift */,
+				873620A9298C366F00088C52 /* LocationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -130,6 +131,7 @@
 		874458592941EB1700C8119F /* SuperWeather */ = {
 			isa = PBXGroup;
 			children = (
+				871146DF2993DFD100C1B691 /* Info.plist */,
 				873620A6298C259C00088C52 /* Managers */,
 				873620A3298C138300088C52 /* Models */,
 				874458852941EC1800C8119F /* ViewModels */,
@@ -318,7 +320,7 @@
 			files = (
 				8744588A2941ED8A00C8119F /* CurrentWeatherView.swift in Sources */,
 				8744585D2941EB1700C8119F /* ContentView.swift in Sources */,
-				873620AA298C366F00088C52 /* CityManager.swift in Sources */,
+				873620AA298C366F00088C52 /* LocationManager.swift in Sources */,
 				8744589429420CBC00C8119F /* ForecastGridView.swift in Sources */,
 				8744585B2941EB1700C8119F /* SuperWeatherApp.swift in Sources */,
 				873620AC298C369100088C52 /* CityModel.swift in Sources */,
@@ -487,6 +489,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SuperWeather/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SuperWeather/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Request to get you location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -515,6 +519,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SuperWeather/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SuperWeather/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Request to get you location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

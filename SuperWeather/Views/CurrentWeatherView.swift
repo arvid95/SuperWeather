@@ -9,8 +9,9 @@ import SwiftUI
 
 struct CurrentWeatherView: View {
     
+    @EnvironmentObject var viewModel: ViewModel
     @State var weatherImage: String
-    @State var weatherCode: String
+    @State var weatherDescription: String
     @State var temperature: String
     @State var todaysDate: String
     @State var currentTime: String
@@ -20,7 +21,7 @@ struct CurrentWeatherView: View {
             
             Image(systemName: weatherImage)
                 .font(.system(size: 80))
-            Text(weatherCode)
+            Text(viewModel.weatherDescription)
                 .font(.largeTitle)
             Text(temperature + "°C")
                 .font(.title)

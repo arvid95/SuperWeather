@@ -52,6 +52,7 @@ class WeatherManager: ObservableObject {
         let urlString = baseURL + endPoint
         
         guard let url = URL(string: urlString) else {
+            print(urlString)
             return
         }
         

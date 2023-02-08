@@ -23,7 +23,7 @@ import CoreLocation
     public init() {
         self.cityResultList = CityResultList(results: [CityResultList.CityInfo(name: "", countryCode: "", latitude: 0, longitude: 0, country: "")])
         self.weatherManager = WeatherManager()
-        self.weatherResponse = WeatherResponse(currentWeather: CurrentWeather(temperature: 0, windSpeed: 0, weatherCode: 0, time: ""), daily: Daily(time: [""], temperature2mMax: [0], temperature2mMin: [0]))
+        self.weatherResponse = WeatherResponse(currentWeather: CurrentWeather(temperature: 0, windspeed: 0, weathercode: 0, time: ""), daily: Daily(time: [""], temperature2mMax: [0], temperature2mMin: [0]))
         self.defaultLocation = CLLocation(latitude: 57.778674, longitude: 14.164293)
         self.location = defaultLocation
     }
@@ -108,7 +108,8 @@ import CoreLocation
                     } else {
                         self.weatherResponse = weather
                         self.forecast = weather.daily
-                        self.weatherDescription = self.weatherCodeMap[weather.currentWeather.weatherCode] ?? ""
+                        self.weatherDescription = self.weatherCodeMap[weather.currentWeather.weathercode] ?? ""
+                        print(self.weatherDescription)
                     }
                 } else {
                     print("Could not get weather.")

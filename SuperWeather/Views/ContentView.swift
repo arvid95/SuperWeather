@@ -9,10 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject var viewModel: ViewModel
+    @EnvironmentObject var locationManager: LocationManager
+    
     var body: some View {
         VStack {
             CurrentWeatherView(weatherImage: "sun.max",
-                               weatherCode: "Sunny",
+                               weatherDescription: "Sunny",
                                temperature: "6",
                                todaysDate: Date().formatted(date: .abbreviated, time: .omitted),
                                currentTime: Date().formatted(date: .omitted, time: .shortened))
@@ -22,6 +25,12 @@ struct ContentView: View {
             
             ForecastView(tomorrowsDate: Date().formatted(date: .abbreviated, time: .omitted), weatherImage: "sun.max", minTemperature: "-15", maxTemperature: "-4")
                 .padding()
+        }
+        .onAppear{
+            locationManager.requestLocationUpdates()
+        }
+        .onChange(of: locationManager.userLocation) { newValue in
+            viewModel.loadCurrentWeather(receivedLocation: newValue, _index: nil)
         }
         .padding()
     }
