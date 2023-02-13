@@ -50,6 +50,7 @@ class WeatherManager: ObservableObject {
         let endPoint = "forecast?latitude=\(location.coordinate.latitude)&longitude=\(location.coordinate.longitude)&daily=weathercode,temperature_2m_max,temperature_2m_min&current_weather=true&windspeed_unit=ms&timezone=Europe%2FBerlin"
         
         let urlString = baseURL + endPoint
+        print(urlString)
         
         guard let url = URL(string: urlString) else {
             print(urlString)

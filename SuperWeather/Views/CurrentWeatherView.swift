@@ -10,23 +10,22 @@ import SwiftUI
 struct CurrentWeatherView: View {
     
     @EnvironmentObject var viewModel: ViewModel
-    @State var weatherImage: String
-    @State var weatherDescription: String
-    @State var temperature: String
-    @State var todaysDate: String
-    @State var currentTime: String
     
     var body: some View {
         VStack {
             
-            Image(systemName: weatherImage)
+            Image(systemName: viewModel.weatherImage)
                 .font(.system(size: 80))
             Text(viewModel.weatherDescription)
                 .font(.largeTitle)
-            Text(temperature + "°C")
+            Text(viewModel.weatherResponse.currentWeather.temperature.formatted() + "°C")
                 .font(.title)
-            Text(todaysDate)
-            Text(currentTime)
+            HStack {
+                Image(systemName: "wind")
+                Text(String(format:"%.1f",viewModel.weatherResponse.currentWeather.windspeed) + "m/s")
+            }
+            Text(viewModel.todaysDate?.formatted(date: .abbreviated, time: .omitted) ?? "")
+            Text(viewModel.todaysDate?.formatted(date: .omitted, time: .shortened) ?? "")
             
         }
     }

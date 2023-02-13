@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ForecastView: View {
     
+    @EnvironmentObject var viewModel: ViewModel
+    
     @State var tomorrowsDate: String
     @State var weatherImage: String
     @State var minTemperature: String
@@ -24,7 +26,24 @@ struct ForecastView: View {
                 .font(.system(size: 60))
             
             
-            ForecastGridView()
+            Grid {
+                GridRow {
+                    ForecastGridItemView(date: "2022-12-09", weatherImage: "sun.max", minTemperature: "-12", maxTemperature: "2")
+                    ForecastGridItemView(date: "2022-12-10", weatherImage: "sun.max", minTemperature: "-12", maxTemperature: "2")
+                }
+                .padding()
+                GridRow {
+                    ForecastGridItemView(date: "2022-12-09", weatherImage: "sun.max", minTemperature: "-12", maxTemperature: "2")
+                    ForecastGridItemView(date: "2022-12-09", weatherImage: "sun.max", minTemperature: "-12", maxTemperature: "2")
+                }
+                .padding()
+                GridRow {
+                    ForecastGridItemView(date: "2022-12-09", weatherImage: "sun.max", minTemperature: "-12", maxTemperature: "2")
+                    ForecastGridItemView(date: "2022-12-09", weatherImage: "sun.max", minTemperature: "-12", maxTemperature: "2")
+                }
+                .padding()
+            }
+            .padding()
             
         }
     }

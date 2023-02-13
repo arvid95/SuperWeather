@@ -14,23 +14,18 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            CurrentWeatherView(weatherImage: "sun.max",
-                               weatherDescription: "Sunny",
-                               temperature: "6",
-                               todaysDate: Date().formatted(date: .abbreviated, time: .omitted),
-                               currentTime: Date().formatted(date: .omitted, time: .shortened))
-            .padding()
+            CurrentWeatherView()
+                .padding()
             
             Spacer()
             
-            ForecastView(tomorrowsDate: Date().formatted(date: .abbreviated, time: .omitted), weatherImage: "sun.max", minTemperature: "-15", maxTemperature: "-4")
-                .padding()
+            ForecastGridView()
         }
         .onAppear{
             locationManager.requestLocationUpdates()
         }
         .onChange(of: locationManager.userLocation) { newValue in
-            viewModel.loadCurrentWeather(receivedLocation: newValue, _index: nil)
+            viewModel.loadWeather(receivedLocation: newValue, _index: nil)
         }
         .padding()
     }

@@ -13,7 +13,9 @@ import CoreLocation
     @Published var weatherResponse: WeatherResponse
     @Published var location: CLLocation
     @Published var weatherDescription = ""
-    @Published var forecast = Daily(time: [""], temperature2mMax: [0], temperature2mMin: [0])
+    @Published var weatherImage = ""
+    @Published var todaysDate: Date?
+    @Published var forecast = Daily(time: [""], weathercode: [0] /*temperature_2m_max: [0],*/ /*temperature_2m_min: [0]*/)
     @Published var cityResultList: CityResultList
     @Published var selectedCity = ""
     @Published var favoriteCities: [FavoriteCity] = []
@@ -23,12 +25,12 @@ import CoreLocation
     public init() {
         self.cityResultList = CityResultList(results: [CityResultList.CityInfo(name: "", countryCode: "", latitude: 0, longitude: 0, country: "")])
         self.weatherManager = WeatherManager()
-        self.weatherResponse = WeatherResponse(currentWeather: CurrentWeather(temperature: 0, windspeed: 0, weathercode: 0, time: ""), daily: Daily(time: [""], temperature2mMax: [0], temperature2mMin: [0]))
+        self.weatherResponse = WeatherResponse(currentWeather: CurrentWeather(temperature: 0, windspeed: 0, weathercode: 0, time: ""), daily: Daily(time: [""], weathercode: [0] /*temperature_2m_max: [0],*/ /*temperature_2m_min: [0]*/))
         self.defaultLocation = CLLocation(latitude: 57.778674, longitude: 14.164293)
         self.location = defaultLocation
     }
     
-    private let weatherCodeMap = [
+    private let weatherCodeToDescription = [
         0: "Clear sky",
         1: "Mainly clear",
         2: "Partly clear",
@@ -38,7 +40,7 @@ import CoreLocation
         51: "Light drizzle",
         53: "Medium drizzle",
         55: "Dense drizzle",
-        56: "Light reezing drizzle",
+        56: "Light freezing drizzle",
         57: "Dense freezing drizzle",
         61: "Slight rain",
         63: "Moderate rain",
@@ -59,6 +61,37 @@ import CoreLocation
         99: "Thunderstorm with heavy hail"
     ]
     
+    private let weatherCodeToImage = [
+        0: "sun.max",
+        1: "sun.max",
+        2: "cloud.sun",
+        3: "cloud.fill",
+        45: "cloud.fog",
+        48: "cloud.fog",
+        51: "cloud.drizzle",
+        53: "cloud.drizzle",
+        55: "cloud.drizzle",
+        56: "cloud.drizzle",
+        57: "cloud.drizzle",
+        61: "cloud.rain",
+        63: "cloud.rain",
+        65: "cloud.heavyrain",
+        66: "cloud.rain",
+        67: "cloud.heavyrain",
+        71: "cloud.snow",
+        73: "cloud.snow",
+        75: "cloud.snow",
+        77: "cloud.snow",
+        80: "cloud.rain",
+        81: "cloud.rain",
+        82: "cloud.heavyrain",
+        85: "cloud.snow",
+        86: "cloud.snow",
+        95: "cloud.bolt",
+        96: "cloud.bolt.rain",
+        99: "cloud.bolt.rain"
+    ]
+    
     func clearLocationResultList() {
         cityResultList.results.removeAll()
     }
@@ -69,17 +102,21 @@ import CoreLocation
         }
     }
     
-    func getDatesArray() -> [String] {
-        return weatherResponse.daily.time
+    func getDateFromInt(day: Int) -> String {
+        return self.weatherResponse.daily.time[day]
     }
     
-    func getMaxTempArray() -> [Float] {
-        return weatherResponse.daily.temperature2mMax
-    }
+    /*func getImagesArray() -> [String] {
+        
+    }*/
     
-    func getMinTempArray() -> [Float] {
-        return weatherResponse.daily.temperature2mMin
-    }
+    /*func getMaxTempArray() -> [Float] {
+        return weatherResponse.daily.temperature_2m_max
+    }*/
+    
+    /*func getMinTempArray() -> [Float] {
+        return weatherResponse.daily.temperature_2m_min
+    }*/
     
     func getCityByLocation() {
         weatherManager.searchCity(cityName: selectedCity) { city in
@@ -93,7 +130,7 @@ import CoreLocation
         }
     }
     
-    func loadCurrentWeather(receivedLocation: CLLocation?, _index: Int?) {
+    func loadWeather(receivedLocation: CLLocation?, _index: Int?) {
         if let coordinates = receivedLocation {
             location = coordinates
         } else {
@@ -108,8 +145,13 @@ import CoreLocation
                     } else {
                         self.weatherResponse = weather
                         self.forecast = weather.daily
-                        self.weatherDescription = self.weatherCodeMap[weather.currentWeather.weathercode] ?? ""
-                        print(self.weatherDescription)
+                        print(self.forecast.time)
+                        print("Date count: \(self.forecast.time.count)")
+                        print(self.forecast.weathercode)
+                        print("Weathercode count: \(self.forecast.weathercode.count)")
+                        self.weatherDescription = self.weatherCodeToDescription[weather.currentWeather.weathercode] ?? ""
+                        self.weatherImage = self.weatherCodeToImage[weather.currentWeather.weathercode] ?? ""
+                        self.todaysDate = Date()
                     }
                 } else {
                     print("Could not get weather.")
