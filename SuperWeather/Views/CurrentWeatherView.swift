@@ -10,6 +10,7 @@ import SwiftUI
 struct CurrentWeatherView: View {
     
     @EnvironmentObject var viewModel: ViewModel
+    @EnvironmentObject var locationManager: LocationManager
     
     var body: some View {
         VStack {
@@ -24,9 +25,25 @@ struct CurrentWeatherView: View {
                 Image(systemName: "wind")
                 Text(String(format:"%.1f",viewModel.weatherResponse.currentWeather.windspeed) + "m/s")
             }
-            Text(viewModel.todaysDate?.formatted(date: .abbreviated, time: .omitted) ?? "")
-            Text(viewModel.todaysDate?.formatted(date: .omitted, time: .shortened) ?? "")
             
+            HStack {
+                VStack {
+                    Text(viewModel.todaysDate?.formatted(date: .abbreviated, time: .omitted) ?? "")
+                    Text(viewModel.todaysDate?.formatted(date: .omitted, time: .standard) ?? "")
+                }
+                Button() {
+                    locationManager.updateLocation()
+                } label: {
+                    Image(systemName: "arrow.clockwise")
+                }
+                .buttonStyle(.bordered)
+            }            
+        }
+        .onAppear{
+            locationManager.requestLocationUpdates()
+        }
+        .onChange(of: locationManager.userLocation) { newValue in
+            viewModel.loadWeather(receivedLocation: newValue, _index: nil)
         }
     }
 }

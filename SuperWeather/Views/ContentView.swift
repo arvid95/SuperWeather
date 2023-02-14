@@ -13,11 +13,20 @@ struct ContentView: View {
     @StateObject var locationManager = LocationManager()
     
     var body: some View {
-        VStack {
+        NavigationStack {
             CurrentWeatherView()
                 .padding()
                 .environmentObject(viewModel)
                 .environmentObject(locationManager)
+            
+            NavigationLink(destination: ChangeLocationView(),
+                           label: {
+                HStack {
+                    Text("Change location")
+                    Image(systemName: "line.diagonal.arrow")
+                }
+            })
+            .buttonStyle(.bordered)
             
             Spacer()
             
