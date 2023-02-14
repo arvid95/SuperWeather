@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		872BEBA1299BDEDB002CB0A5 /* ChangeLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872BEBA0299BDEDB002CB0A5 /* ChangeLocationView.swift */; };
+		872BEBA3299BE9B3002CB0A5 /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872BEBA2299BE9B3002CB0A5 /* SearchListView.swift */; };
 		873620A5298C139700088C52 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873620A4298C139700088C52 /* WeatherModel.swift */; };
 		873620A8298C25B900088C52 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873620A7298C25B900088C52 /* WeatherManager.swift */; };
 		873620AA298C366F00088C52 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873620A9298C366F00088C52 /* LocationManager.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		871146DF2993DFD100C1B691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		872BEBA0299BDEDB002CB0A5 /* ChangeLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLocationView.swift; sourceTree = "<group>"; };
+		872BEBA2299BE9B3002CB0A5 /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 		873620A4298C139700088C52 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		873620A7298C25B900088C52 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		873620A9298C366F00088C52 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				8744589329420CBC00C8119F /* ForecastGridView.swift */,
 				8744589529420CD900C8119F /* ForecastGridItemView.swift */,
 				872BEBA0299BDEDB002CB0A5 /* ChangeLocationView.swift */,
+				872BEBA2299BE9B3002CB0A5 /* SearchListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				8744585D2941EB1700C8119F /* ContentView.swift in Sources */,
 				873620AA298C366F00088C52 /* LocationManager.swift in Sources */,
 				8744589429420CBC00C8119F /* ForecastGridView.swift in Sources */,
+				872BEBA3299BE9B3002CB0A5 /* SearchListView.swift in Sources */,
 				8744585B2941EB1700C8119F /* SuperWeatherApp.swift in Sources */,
 				872BEBA1299BDEDB002CB0A5 /* ChangeLocationView.swift in Sources */,
 				873620AC298C369100088C52 /* CityModel.swift in Sources */,

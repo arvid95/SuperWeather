@@ -19,11 +19,11 @@ struct ContentView: View {
                 .environmentObject(viewModel)
                 .environmentObject(locationManager)
             
-            NavigationLink(destination: ChangeLocationView(),
+            NavigationLink(destination: ChangeLocationView().environmentObject(viewModel),
                            label: {
                 HStack {
                     Text("Change location")
-                    Image(systemName: "line.diagonal.arrow")
+                    Image(systemName: "location")
                 }
             })
             .buttonStyle(.bordered)
