@@ -22,7 +22,7 @@ struct CurrentWeather: Decodable {
 struct Daily: Decodable, Hashable {
     var time: [String]
     var weathercode: [Int]
-    //var temperature_2m_max: [Float]
+    var temperature_2m_max: [Float]
     //var temperature_2m_min: [Float]
     
     /*enum CodingKeys: String, CodingKey {

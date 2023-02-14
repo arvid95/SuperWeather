@@ -15,7 +15,7 @@ import CoreLocation
     @Published var weatherDescription = ""
     @Published var weatherImage = ""
     @Published var todaysDate: Date?
-    @Published var forecast = Daily(time: [""], weathercode: [0] /*temperature_2m_max: [0],*/ /*temperature_2m_min: [0]*/)
+    @Published var forecast = Daily(time: [""], weathercode: [0], temperature_2m_max: [0] /*temperature_2m_min: [0]*/)
     @Published var cityResultList: CityResultList
     @Published var selectedCity = ""
     @Published var favoriteCities: [FavoriteCity] = []
@@ -25,7 +25,7 @@ import CoreLocation
     public init() {
         self.cityResultList = CityResultList(results: [CityResultList.CityInfo(name: "", countryCode: "", latitude: 0, longitude: 0, country: "")])
         self.weatherManager = WeatherManager()
-        self.weatherResponse = WeatherResponse(currentWeather: CurrentWeather(temperature: 0, windspeed: 0, weathercode: 0, time: ""), daily: Daily(time: [""], weathercode: [0] /*temperature_2m_max: [0],*/ /*temperature_2m_min: [0]*/))
+        self.weatherResponse = WeatherResponse(currentWeather: CurrentWeather(temperature: 0, windspeed: 0, weathercode: 0, time: ""), daily: Daily(time: [""], weathercode: [0], temperature_2m_max: [0] /*temperature_2m_min: [0]*/))
         self.defaultLocation = CLLocation(latitude: 57.778674, longitude: 14.164293)
         self.location = defaultLocation
     }

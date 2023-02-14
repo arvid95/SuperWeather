@@ -9,17 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @EnvironmentObject var viewModel: ViewModel
-    @EnvironmentObject var locationManager: LocationManager
+    @StateObject var viewModel = ViewModel()
+    @StateObject var locationManager = LocationManager()
     
     var body: some View {
         VStack {
             CurrentWeatherView()
                 .padding()
+                .environmentObject(viewModel)
+                .environmentObject(locationManager)
             
             Spacer()
             
             ForecastGridView()
+                .environmentObject(viewModel)
+                .environmentObject(locationManager)
         }
         .onAppear{
             locationManager.requestLocationUpdates()
@@ -32,6 +36,7 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
         ContentView()
     }
