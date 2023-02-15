@@ -62,6 +62,7 @@ class WeatherManager: ObservableObject {
                 guard let httpResponse = element.response as? HTTPURLResponse, httpResponse.statusCode < 400 else {
                     throw URLError(.badServerResponse)
                 }
+                print("\nJson data fetched successfully. Now decoding.\n")
                 return element.data
             }
             .decode(type: WeatherResponse.self, decoder: jsonDecoder)

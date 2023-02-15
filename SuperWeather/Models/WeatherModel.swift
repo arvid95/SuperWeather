@@ -14,20 +14,28 @@ struct WeatherResponse: Decodable {
 
 struct CurrentWeather: Decodable {
     var temperature: Float
-    var windspeed: Float
-    var weathercode: Int
+    var windSpeed: Float
+    var weatherCode: Int
     var time: String
+    
+    enum CodingKeys: String, CodingKey {
+        case temperature
+        case windSpeed = "windspeed"
+        case weatherCode = "weathercode"
+        case time
+    }
 }
 
 struct Daily: Decodable, Hashable {
-    var time: [String]
-    var weathercode: [Int]
-    //var temperature_2m_max: [Float]
-    //var temperature_2m_min: [Float]
+    var dates: [String]
+    var weatherCodes: [Int]
+    var maxTemperatures: [Float]
+    var minTemperatures: [Float]
     
-    /*enum CodingKeys: String, CodingKey {
-        case temperature2mMax = "temperature_2m_max"
-        case temperature2mMin = "temperature_2m_min"
-        case time = "time"
-    }*/
+    enum CodingKeys: String, CodingKey {
+        case dates = "time"
+        case weatherCodes = "weathercode"
+        case maxTemperatures = "temperature_2m_max"
+        case minTemperatures = "temperature_2m_min"
+    }
 }

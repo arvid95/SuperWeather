@@ -16,7 +16,7 @@ struct ForecastGridView: View {
         Grid {
             GridRow {
                 ForecastGridItemView(
-                    date: viewModel.forecast.weathercode.description,
+                    date: viewModel.forecast.weatherCodes.description,
                     weatherImage: "sun.max",
                     minTemperature: "-12",
                     maxTemperature: "2")

@@ -23,7 +23,7 @@ struct CurrentWeatherView: View {
                 .font(.title)
             HStack {
                 Image(systemName: "wind")
-                Text(String(format:"%.1f",viewModel.weatherResponse.currentWeather.windspeed) + "m/s")
+                Text(String(format:"%.1f",viewModel.weatherResponse.currentWeather.windSpeed) + "m/s")
             }
             
             HStack {

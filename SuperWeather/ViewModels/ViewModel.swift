@@ -15,7 +15,7 @@ import CoreLocation
     @Published var weatherDescription = ""
     @Published var weatherImage = ""
     @Published var todaysDate: Date?
-    @Published var forecast = Daily(time: [""], weathercode: [0]/*, temperature_2m_max: [0]*/ /*temperature_2m_min: [0]*/)
+    @Published var forecast = Daily(dates: [""], weatherCodes: [0], maxTemperatures: [0], minTemperatures: [0])
     @Published var cityResultList: CityResultList
     @Published var selectedCity = ""
     @Published var favoriteCities: [FavoriteCity] = []
@@ -25,7 +25,7 @@ import CoreLocation
     public init() {
         self.cityResultList = CityResultList(results: [CityResultList.CityInfo(name: "", countryCode: "", latitude: 0, longitude: 0, country: "")])
         self.weatherManager = WeatherManager()
-        self.weatherResponse = WeatherResponse(currentWeather: CurrentWeather(temperature: 0, windspeed: 0, weathercode: 0, time: ""), daily: Daily(time: [""], weathercode: [0]/*, temperature_2m_max: [0]*/ /*temperature_2m_min: [0]*/))
+        self.weatherResponse = WeatherResponse(currentWeather: CurrentWeather(temperature: 0, windSpeed: 0, weatherCode: 0, time: ""), daily: Daily(dates: [""], weatherCodes: [0], maxTemperatures: [0], minTemperatures: [0]))
         self.defaultLocation = CLLocation(latitude: 57.778674, longitude: 14.164293)
         self.location = defaultLocation
     }
@@ -103,7 +103,7 @@ import CoreLocation
     }
     
     func getDateFromInt(day: Int) -> String {
-        return self.weatherResponse.daily.time[day]
+        return self.weatherResponse.daily.dates[day]
     }
     
     /*func getImagesArray() -> [String] {
@@ -145,12 +145,12 @@ import CoreLocation
                     } else {
                         self.weatherResponse = weather
                         self.forecast = weather.daily
-                        print(self.forecast.time)
-                        print("Date count: \(self.forecast.time.count)")
-                        print(self.forecast.weathercode)
-                        print("Weathercode count: \(self.forecast.weathercode.count)")
-                        self.weatherDescription = self.weatherCodeToDescription[weather.currentWeather.weathercode] ?? ""
-                        self.weatherImage = self.weatherCodeToImage[weather.currentWeather.weathercode] ?? ""
+                        print(self.forecast.dates)
+                        print("Date count: \(self.forecast.dates.count)")
+                        print(self.forecast.weatherCodes)
+                        print("Weathercode count: \(self.forecast.weatherCodes.count)")
+                        self.weatherDescription = self.weatherCodeToDescription[weather.currentWeather.weatherCode] ?? ""
+                        self.weatherImage = self.weatherCodeToImage[weather.currentWeather.weatherCode] ?? ""
                         self.todaysDate = Date()
                     }
                 } else {
