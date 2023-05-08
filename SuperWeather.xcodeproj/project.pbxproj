@@ -44,7 +44,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		871146DF2993DFD100C1B691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		872BEBA0299BDEDB002CB0A5 /* ChangeLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLocationView.swift; sourceTree = "<group>"; };
 		872BEBA2299BE9B3002CB0A5 /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 		873620A4298C139700088C52 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
@@ -133,7 +132,6 @@
 		874458592941EB1700C8119F /* SuperWeather */ = {
 			isa = PBXGroup;
 			children = (
-				871146DF2993DFD100C1B691 /* Info.plist */,
 				873620A6298C259C00088C52 /* Managers */,
 				873620A3298C138300088C52 /* Models */,
 				874458852941EC1800C8119F /* ViewModels */,
