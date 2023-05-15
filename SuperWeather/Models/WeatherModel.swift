@@ -35,7 +35,7 @@ struct Daily: Decodable, Hashable {
     enum CodingKeys: String, CodingKey {
         case dates = "time"
         case weatherCodes = "weathercode"
-        case maxTemperatures = "temperature_2m_max"
-        case minTemperatures = "temperature_2m_min"
+        case maxTemperatures = "temperature2MMax"
+        case minTemperatures = "temperature2MMin"
     }
 }
