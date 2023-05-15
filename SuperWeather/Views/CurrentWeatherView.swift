@@ -32,7 +32,8 @@ struct CurrentWeatherView: View {
                     Text(viewModel.todaysDate?.formatted(date: .omitted, time: .standard) ?? "")
                 }
                 Button() {
-                    locationManager.updateLocation()
+                    locationManager.requestLocationUpdates()
+                    //print("Refresh button pressed.")
                 } label: {
                     Image(systemName: "arrow.clockwise")
                 }

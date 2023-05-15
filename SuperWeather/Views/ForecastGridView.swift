@@ -10,53 +10,55 @@ import SwiftUI
 struct ForecastGridView: View {
     
     @EnvironmentObject var viewModel: ViewModel
+    @EnvironmentObject var locationManager: LocationManager
     
     var body: some View {
         
         Grid {
             GridRow {
                 ForecastGridItemView(
-                    date: viewModel.forecast.weatherCodes.description,
+                    date: viewModel.forecast.dates[0],
                     weatherImage: "sun.max",
-                    minTemperature: "-12",
-                    maxTemperature: "2")
+                    minTemperature: viewModel.forecast.minTemperatures[0].formatted(),
+                    maxTemperature: viewModel.forecast.maxTemperatures[0].formatted())
                 ForecastGridItemView(
-                    date: "2022-12-10",
+                    date: viewModel.forecast.dates[1],
                     weatherImage: "sun.max",
-                    minTemperature: "-12",
-                    maxTemperature: "2")
+                    minTemperature: viewModel.forecast.minTemperatures[1].formatted(),
+                    maxTemperature: viewModel.forecast.maxTemperatures[1].formatted())
             }
             .padding()
             GridRow {
                 ForecastGridItemView(
-                    date: "2022-12-09",
+                    date: viewModel.forecast.dates[2],
                     weatherImage: "sun.max",
-                    minTemperature: "-12",
-                    maxTemperature: "2")
+                    minTemperature: viewModel.forecast.minTemperatures[2].formatted(),
+                    maxTemperature: viewModel.forecast.maxTemperatures[2].formatted())
                 ForecastGridItemView(
-                    date: "2022-12-09",
+                    date: viewModel.forecast.dates[3],
                     weatherImage: "sun.max",
-                    minTemperature: "-12",
-                    maxTemperature: "2")
+                    minTemperature: viewModel.forecast.minTemperatures[3].formatted(),
+                    maxTemperature: viewModel.forecast.maxTemperatures[3].formatted())
             }
             .padding()
             GridRow {
                 ForecastGridItemView(
-                    date: "2022-12-09",
+                    date: viewModel.forecast.dates[4],
                     weatherImage: "sun.max",
-                    minTemperature: "-12",
-                    maxTemperature: "2")
+                    minTemperature: viewModel.forecast.minTemperatures[4].formatted(),
+                    maxTemperature: viewModel.forecast.maxTemperatures[4].formatted())
                 ForecastGridItemView(
-                    date: "2022-12-09",
+                    date: viewModel.forecast.dates[5],
                     weatherImage: "sun.max",
-                    minTemperature: "-12",
-                    maxTemperature: "2")
+                    minTemperature: viewModel.forecast.minTemperatures[5].formatted(),
+                    maxTemperature: viewModel.forecast.maxTemperatures[5].formatted())
             }
             .padding()
         }
         .padding()
         
     }
+    
 }
 
 struct ForecastGridView_Previews: PreviewProvider {

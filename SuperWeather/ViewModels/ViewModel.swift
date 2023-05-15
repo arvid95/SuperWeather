@@ -15,7 +15,7 @@ import CoreLocation
     @Published var weatherDescription = ""
     @Published var weatherImage = ""
     @Published var todaysDate: Date?
-    @Published var forecast = Daily(dates: [""], weatherCodes: [0], maxTemperatures: [0], minTemperatures: [0])
+    @Published var forecast = Daily(dates: ["DefaultDate0", "DefaultDate1", "DefaultDate2", "DefaultDate3", "DefaultDate4", "DefaultDate5"], weatherCodes: [0, 1, 2, 3, 4, 5, 6], maxTemperatures: [0, 1, 2, 3, 4, 5], minTemperatures: [0, 1, 2, 3, 4, 5])
     @Published var cityResultList: CityResultList
     @Published var selectedCity = ""
     @Published var favoriteCities: [FavoriteCity] = []
@@ -102,9 +102,9 @@ import CoreLocation
         }
     }
     
-    func getDateFromInt(day: Int) -> String {
+    /*func getDateFromInt(day: Int) -> String {
         return self.weatherResponse.daily.dates[day]
-    }
+    }*/
     
     /*func getImagesArray() -> [String] {
         
@@ -147,6 +147,7 @@ import CoreLocation
                         self.forecast = weather.daily
                         print(self.forecast.dates)
                         print("Date count: \(self.forecast.dates.count)")
+                        print("First date: \(self.forecast.dates[0])")
                         print(self.forecast.weatherCodes)
                         print("Weathercode count: \(self.forecast.weatherCodes.count)")
                         self.weatherDescription = self.weatherCodeToDescription[weather.currentWeather.weatherCode] ?? ""
