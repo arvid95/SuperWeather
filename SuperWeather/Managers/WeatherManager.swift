@@ -20,6 +20,7 @@ class WeatherManager: ObservableObject {
     
     init() {
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+        weatherResponse = WeatherResponse(currentWeather: CurrentWeather(temperature: 0, windSpeed: 0, weatherCode: 0, time: "default"), daily: Daily(dates: [""], weatherCodes: [0], maxTemperatures: [0], minTemperatures: [0]))
         cityResultList = CityResultList(results: [CityResultList.CityInfo(name: "", countryCode: "", latitude: 0, longitude: 0, country: "")])
     }
     
@@ -62,16 +63,18 @@ class WeatherManager: ObservableObject {
                 guard let httpResponse = element.response as? HTTPURLResponse, httpResponse.statusCode < 400 else {
                     throw URLError(.badServerResponse)
                 }
-                print("\nJson data fetched successfully. Now decoding.\n")
+                print("\nJson data fetched successfully. Now decoding.")
                 return element.data
             }
             .decode(type: WeatherResponse.self, decoder: jsonDecoder)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
-                print(completion)
-            }, receiveValue: { [weak self] data in
-                self?.weatherResponse?.currentWeather = data.currentWeather
-                self?.weatherResponse?.daily = data.daily
+                print("Decoding \(completion).")
+            }, receiveValue: { data in
+                self.weatherResponse = data
+                print("Printing WeatherManager weatherResponse object: \(String(describing: self.weatherResponse))")
+                //self.weatherResponse?.currentWeather = data.currentWeather
+                //self.weatherResponse?.daily = data.daily
                 completion(data)
             })
     }

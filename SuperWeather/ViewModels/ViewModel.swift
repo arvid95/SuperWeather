@@ -145,10 +145,11 @@ import CoreLocation
                     } else {
                         self.weatherResponse = weather
                         self.forecast = weather.daily
-                        print(self.forecast.dates)
+                        print("\nViewModel:")
+                        print("Dates: \(self.forecast.dates)")
                         print("Date count: \(self.forecast.dates.count)")
-                        print("First date: \(self.forecast.dates[0])")
-                        print(self.forecast.weatherCodes)
+                        print("Tomorrow's date: \(self.forecast.dates[1])")
+                        print("Weather codes: \(self.forecast.weatherCodes)")
                         print("Weathercode count: \(self.forecast.weatherCodes.count)")
                         self.weatherDescription = self.weatherCodeToDescription[weather.currentWeather.weatherCode] ?? ""
                         self.weatherImage = self.weatherCodeToImage[weather.currentWeather.weatherCode] ?? ""
