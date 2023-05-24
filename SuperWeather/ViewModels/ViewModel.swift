@@ -102,6 +102,10 @@ import CoreLocation
         }
     }
     
+    func getDescriptionFromWeatherCode(weatherCode: Int) -> String {
+        return weatherCodeToDescription[weatherCode] ?? "Weather error!"
+    }
+    
     func getImageFromWeatherCode(weatherCode: Int) -> String {
         return weatherCodeToImage[weatherCode] ?? "sun.max"
     }
