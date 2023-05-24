@@ -65,7 +65,7 @@ import CoreLocation
         0: "sun.max",
         1: "sun.max",
         2: "cloud.sun",
-        3: "cloud.fill",
+        3: "cloud",
         45: "cloud.fog",
         48: "cloud.fog",
         51: "cloud.drizzle",
