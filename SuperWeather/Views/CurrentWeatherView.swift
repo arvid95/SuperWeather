@@ -31,13 +31,13 @@ struct CurrentWeatherView: View {
                     Text(viewModel.todaysDate?.formatted(date: .abbreviated, time: .omitted) ?? "")
                     Text(viewModel.todaysDate?.formatted(date: .omitted, time: .standard) ?? "")
                 }
-                Button() {
+                /*Button() {
                     locationManager.requestLocationUpdates()
                     //print("Refresh button pressed.")
                 } label: {
                     Image(systemName: "arrow.clockwise")
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(.bordered)*/
             }            
         }
         .onAppear{
