@@ -102,21 +102,9 @@ import CoreLocation
         }
     }
     
-    /*func getDateFromInt(day: Int) -> String {
-        return self.weatherResponse.daily.dates[day]
-    }*/
-    
-    /*func getImagesArray() -> [String] {
-        
-    }*/
-    
-    /*func getMaxTempArray() -> [Float] {
-        return weatherResponse.daily.temperature_2m_max
-    }*/
-    
-    /*func getMinTempArray() -> [Float] {
-        return weatherResponse.daily.temperature_2m_min
-    }*/
+    func getImageFromWeatherCode(weatherCode: Int) -> String {
+        return weatherCodeToImage[weatherCode] ?? "sun.max"
+    }
     
     func getCityByLocation() {
         weatherManager.searchCity(cityName: selectedCity) { city in
