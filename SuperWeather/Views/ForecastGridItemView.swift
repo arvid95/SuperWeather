@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ForecastGridItemView: View {
     
-    @State var date: String
-    @State var weatherImage: String
-    @State var minTemperature: String
-    @State var maxTemperature: String
+    let date: String
+    let weatherImage: String
+    let minTemperature: String
+    let maxTemperature: String
     
     var body: some View {
         VStack {
